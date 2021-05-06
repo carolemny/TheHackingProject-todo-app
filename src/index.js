@@ -13,14 +13,12 @@ import MarkdownInput from "components/MarkdownInput";
 import NotesMenu from "components/NotesMenu";
 
 const App = () => {
-  const [markdownValue, setMarkdownValue] = React.useState("");
   const [notes, setNotes] = React.useState(() => {
     const data = localStorage.getItem("blocNote");
-    if(!data) {
+    if (!data) {
       return [];
     }
     const parsedData = JSON.parse(data);
-    console.log(parsedData);
     return parsedData;
   });
   const [selectedNote, setSelectedNote] = React.useState({
@@ -31,7 +29,6 @@ const App = () => {
 
   const onNoteChanged = (note) => {
     setSelectedNote(note);
-    setMarkdownValue(note.content);
   };
 
   const selectNote = (note) => {
@@ -49,7 +46,7 @@ const App = () => {
       setSelectedNote(newNote);
       notesToSave = [...notes, newNote];
     } else {
-      const foundIndex = notes.findIndex(note => note.id === selectedNote.id);
+      const foundIndex = notes.findIndex((note) => note.id === selectedNote.id);
       notesToSave = notes;
       notesToSave[foundIndex] = selectedNote;
     }
@@ -58,12 +55,16 @@ const App = () => {
   };
 
   return (
-    <div className="container-fluid row">
-      <div className="col-3">
-        <NotesMenu notes={notes} onSelectNote={selectNote} onCreate={selectNote} />
+    <div className="row d-flex justify-content-center">
+      <div className="col-4">
+        <NotesMenu
+          notes={notes}
+          onSelectNote={selectNote}
+          onCreate={selectNote}
+        />
       </div>
-      <div className="col-9">
-        <NoteDisplay markdownInput={markdownValue} />
+      <div className="col-8">
+        <NoteDisplay markdownInput={selectedNote} />
         <MarkdownInput
           onNoteChange={onNoteChanged}
           note={selectedNote}

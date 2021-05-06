@@ -1,1 +1,95 @@
-@import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";
+
+/******************************************** my variables ********************************************/
+$my-brown: #c19a5b;
+$my-light: #f9f5ef;
+$my-grey-light: #cdcbca;
+$my-grey-medium: #928f8c;
+$my-grey-dark: #6f6f6f;
+$my-dark: #1f1f1f;
+
+/********************************************** general **********************************************/
+body,
+html {
+  color: $my-dark;
+  background-color: $my-light;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.btn,
+.btn-outline-primary,
+.btn-primary {
+  color: $my-grey-dark;
+  border-color: $my-grey-dark;
+  margin: 3% auto;
+  &:hover,
+  &:not(:disabled):not(.disabled):active {
+    color: $my-light;
+    background-color: $my-grey-dark;
+    border-color: $my-grey-dark;
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(111, 111, 111, 0.5);
+  }
+}
+
+.btn-primary {
+  background-color: $my-grey-dark;
+  color: $my-light;
+  &:hover,
+  &:focus,
+  &:not(:disabled):not(.disabled):active {
+    background-color: rgba(249, 245, 239, 0.5);
+    color: $my-grey-dark;
+    border-color: $my-grey-dark;
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(111, 111, 111, 0.5);
+  }
+}
+
+.my-bg {
+  background-color: rgba(235, 219, 195, 0.3);
+  border: 1px solid #ebdbc3;
+}
+
+/*********************************************** menu ***********************************************/
+.NotesMenu {
+  border-right: 5px solid $my-brown;
+  height: 100vh;
+}
+
+.truncate {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/********************************************** display **********************************************/
+.NoteDisplay {
+  height: 40%;
+  background-color: white;
+}
+
+.NoteDisplayTitle {
+  font-size: 40px;
+  font-weight: bolder;
+  color: $my-brown;
+}
+
+/*********************************************** input ***********************************************/
+.MarkdownInput {
+  height: 60%;
+}
+
+.form-control {
+  margin: 20px auto;
+}
+
+textarea.form-control {
+  height: 200px;
+}

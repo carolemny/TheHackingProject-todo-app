@@ -1,23 +1,17 @@
 import React from "react";
 
 const MarkdownInput = ({ onNoteChange, note, onSave }) => {
-  /* const [content, setContent] = React.useState(note.content);
-  const [title, setTitle] = React.useState(note.title);
- */
   const onContenChange = (event) => {
-    /* setContent(event.target.value); */
     onNoteChange({ ...note, content: event.target.value });
   };
 
   const onTitleChange = (event) => {
     onNoteChange({ ...note, title: event.target.value });
-    /*     setTitle(event.target.value);
-     */
   };
 
   return (
     <>
-      <div className="MarkdownInput">
+      <div className="MarkdownInput px-4 py-2">
         <input
           type="text"
           value={note.title}
@@ -29,7 +23,11 @@ const MarkdownInput = ({ onNoteChange, note, onSave }) => {
           onChange={onContenChange}
           className="form-control"
         ></textarea>
-        <button onClick={onSave}>Sauvegarder</button>
+        <div className="d-flex justify-content-center m-0 p-0">
+          <button onClick={onSave} className="btn btn-outline-primary btn-lg">
+            Sauvegarder
+          </button>
+        </div>
       </div>
     </>
   );
